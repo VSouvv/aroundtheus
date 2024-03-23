@@ -1,0 +1,37 @@
+.footer {
+  margin-top: 67px;
+}
+
+.footer__text {
+  color: #545454;
+  margin: 0;
+  max-width: 318px;
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    margin-top: 48px;
+    margin-bottom: 36px;
+  }
+  .footer__text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 321px) {
+  .footer {
+    margin-bottom: 36px;
+  }
+  .footer__text {
+    margin-left: 19px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer {
+    margin-bottom: 60px;
+  }
+  .footer__text {
+    font-size: 18px;
+  }
+}
