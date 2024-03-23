@@ -1,1 +1,86 @@
+.page {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: white;
+}
 
+.page__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page__section {
+  max-width: 880px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 320px) {
+  .content {
+    margin-left: 19px;
+    margin-right: 19px;
+  }
+}
+
+.header {
+  padding-top: 45px;
+  border-bottom: 1px solid rgb(84 84 84 / 0.7);
+}
+
+.header__image {
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 320px) {
+  .header
+    (
+        width: 100%;
+        margin-top: 28px;
+        margin-bottom: 42px;
+    )
+    .header__image {
+    max-width: 126px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .header__image {
+    margin-top: 28px;
+    margin-left: 27px;
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header {
+    margin-bottom: 51px;
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile__image {
+  width: 120px;
+  height: 120px;
+  background-position: center;
+  border-radius: 50%;
+  margin-right: 28px;
+  object-fit: cover;
+}
+
+.profile__title {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+  margin: 0;
+  grid-area: title;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
