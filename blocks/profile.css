@@ -6,7 +6,6 @@
 .profile__image {
   width: 120px;
   height: 120px;
-  background-position: center;
   border-radius: 50%;
   margin-right: 28px;
   object-fit: cover;
@@ -54,7 +53,8 @@
   width: 150px;
   height: 50px;
   margin-left: auto;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
+  border-radius: 2px;
 }
 
 .profile__add-button:hover {
@@ -83,8 +83,8 @@
   }
 
   .profile__image {
-    margin-left: 101px;
-    margin-right: 99px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .profile__info {
@@ -133,7 +133,6 @@
   }
 
   .profile__title {
-    font-size: 22px;
     margin-left: auto;
     margin-right: auto;
     width: 200px;

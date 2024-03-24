@@ -18,6 +18,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   flex-grow: 1;
+  font-size: 24px;
+  line-height: 29.05px;
 }
 
 .card__text {
@@ -38,10 +40,10 @@
     center;
   width: 23px;
   height: 18px;
+  border: none;
 }
 
 .card__like-button:hover {
-  background-image: url("../images/heart_low-opacity.svg");
   opacity: 0.5;
   cursor: pointer;
 }

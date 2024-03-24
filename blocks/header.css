@@ -7,7 +7,7 @@
   border-radius: 5px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 620px) {
   .header {
     width: 100%;
     margin-top: 28px;
@@ -16,19 +16,7 @@
 
   .header__image {
     max-width: 126px;
-  }
-}
-
-@media screen and (max-width: 780px) {
-  .header__image {
-    margin-top: 28px;
-    margin-left: 27px;
-    margin-bottom: 32px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .header {
-    margin-bottom: 51px;
+    height: 24px;
+    padding-bottom: 32px;
   }
 }
