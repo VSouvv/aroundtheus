@@ -21,13 +21,12 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  max-width: 373px;
+  max-width: 375px;
 }
 
 .profile__info {
   display: grid;
   grid-template-areas: "title button" "description description";
-  grid-template-columns: minmax(auto, 373px) auto;
   align-items: center;
 }
 
