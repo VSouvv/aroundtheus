@@ -10,7 +10,7 @@ This project is made so all the elements are displayed correctly on popular scre
 
 **Project Video and Page Links**
 https://github.com/VSouvv/se_project_aroundtheus
-https://drive.google.com/file/d/1zevWZGcmLV6FXGXijAOHUD7L9Xh9cUq_/view?usp=drive_link
+https://drive.google.com/file/d/1zevWZGcmLV6FXGXijAOHUD7L9Xh9cUq_/view?usp=sharing
 https://VSouvv.github.io/se_project_aroundtheus/
 
 **Figma**

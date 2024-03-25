@@ -1,10 +1,12 @@
 .header {
   padding-top: 45px;
   border-bottom: 1px solid rgb(84 84 84 / 0.7);
+  padding-bottom: 40px;
 }
 
 .header__image {
   border-radius: 5px;
+  margin-top: 45px;
 }
 
 @media screen and (max-width: 620px) {
@@ -12,11 +14,14 @@
     width: 100%;
     margin-top: 28px;
     margin-bottom: 42px;
+    padding-bottom: 32px;
   }
 
   .header__image {
     max-width: 126px;
     height: 24px;
     padding-bottom: 32px;
+    margin-top: 28px;
+    margin-left: 27px;
   }
 }
