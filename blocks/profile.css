@@ -94,12 +94,12 @@
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+    margin-top: 36px;
   }
 
   .profile__title {
     padding-left: 30px;
     line-height: 1.2;
-    margin-top: 36px;
     padding-top: 0;
   }
 
