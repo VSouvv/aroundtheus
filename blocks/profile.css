@@ -32,8 +32,6 @@
   grid-template-areas: "title button" "description description";
   align-items: center;
   grid-template-columns: minmax(auto, 375px) auto;
-  margin-top: 36px;
-  padding-top: 0;
 }
 
 .profile__edit-button {
@@ -101,6 +99,8 @@
   .profile__title {
     padding-left: 30px;
     line-height: 1.2;
+    margin-top: 36px;
+    padding-top: 0;
   }
 
   .profile__description {
