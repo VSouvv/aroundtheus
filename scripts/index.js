@@ -1,6 +1,6 @@
 const initialCards = [
   {
-    name: "Yosimite Valley",
+    name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   },
   {
@@ -20,7 +20,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
   },
   {
-    name: "Lago di Braies",
+    name: "Lago Di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
@@ -38,7 +38,9 @@ const profileDescriptionInput = document.querySelector(
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".card__list");
 const cardTemplate =
-  document.querySelector("#card-template").textContent.firstElementChild;
+  document.querySelector("#card-template").content.firstElementChild;
+const cardElement = document.querySelector(".card");
+const imageAltText = document.querySelector(".card");
 
 /*Functions*/
 function closePopop() {
@@ -49,10 +51,13 @@ function getCardElement(cardData) {
   // clone the template element with all its content and store it in a cardElement variable
   const cardElement = cardTemplate.cloneNode(true);
   // access the card title and image and store them in variables
-  const cardImageEl = cardElement.querySelector("card__image");
-  const cardTitleEl = cardElement.querySelector("card__title");
+  const cardImageEl = cardElement.querySelector(".card__image");
+  cardImageEl.src = cardData.link;
+  const cardTitleEl = cardElement.querySelector(".card__title");
   // set the path to the image to the link field of the object
+  const cardImageAltEl = cardElement.querySelector(".card__image");
   // set the image alt text to the name field of the object
+  imageAltText.textContent = cardData.name;
   // set the card title to the name field of the object, too
   cardTitleEl.textContent = cardData.name;
   // return the ready HTML element with the filled-in data
@@ -74,7 +79,7 @@ profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal_opened");
 });
 
-profileEditCloseButton.addEventListener("click", closePopop);
+profileEditCloseButton.addEventListener("click", closePopop());
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
