@@ -42,7 +42,7 @@ const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
 /*Functions*/
-function closePopop() {
+function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
 
@@ -53,7 +53,6 @@ function getCardElement(cardData) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   // set the path to the image to the link field of the object
-  const cardImageAltEl = cardElement.querySelector(".card__image");
   // set the image alt text to the name field of the object
   cardImageEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
@@ -68,7 +67,7 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopop();
+  closePopup();
 }
 
 /*Event Listeners*/
@@ -78,7 +77,7 @@ profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal_opened");
 });
 
-profileEditCloseButton.addEventListener("click", closePopop());
+profileEditCloseButton.addEventListener("click", closePopup());
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 

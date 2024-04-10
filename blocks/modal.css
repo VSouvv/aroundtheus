@@ -115,7 +115,7 @@
 }
 
 @media screen and (max-width: 800px) {
-  .modal__header {
+  .modal__heading {
     font-size: 18px;
     line-height: 22px;
     margin-bottom: 75px;
