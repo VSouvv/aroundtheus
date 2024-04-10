@@ -53,12 +53,12 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   // access the card title and image and store them in variables
   const cardImageEl = cardElement.querySelector(".card__image");
-  cardImageEl.src = cardData.link;
   const cardTitleEl = cardElement.querySelector(".card__title");
   // set the path to the image to the link field of the object
   const cardImageAltEl = cardElement.querySelector(".card__image");
   // set the image alt text to the name field of the object
   cardImageEl.alt = cardData.name;
+  cardImageEl.src = cardData.link;
   // set the card title to the name field of the object, too
   cardTitleEl.textContent = cardData.name;
   // return the ready HTML element with the filled-in data
