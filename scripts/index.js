@@ -36,12 +36,10 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const cardListEl = document.querySelector(".card__list");
+const cardListEl = document.querySelector(".cards__list");
 const cardImageEl = document.querySelector(".card__image");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const cardElement = document.querySelector(".card");
-const imageAltText = document.querySelector(".card");
 
 /*Functions*/
 function closePopop() {
