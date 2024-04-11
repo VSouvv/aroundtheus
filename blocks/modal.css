@@ -27,10 +27,15 @@
 }
 
 .modal__heading {
-  color: black;
-  font-weight: 900;
+  background: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0);
+  font-family: "Inter", Arial, sans-serif;
   font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
   margin-bottom: 54px;
+  margin-top: auto;
+  max-width: 100%;
 }
 
 .modal__header {
@@ -117,8 +122,6 @@
 @media screen and (max-width: 800px) {
   .modal__heading {
     font-size: 18px;
-    line-height: 22px;
-    margin-bottom: 75px;
   }
 
   .modal__container {
@@ -137,7 +140,7 @@
     width: 26px;
     height: 26px;
     background-size: 26px 26px;
-    right: 0;
+    left: calc(100% - 35px);
     top: -53px;
   }
 
