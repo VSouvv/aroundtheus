@@ -69,6 +69,19 @@ function getCardElement(cardData) {
   // access the card title and image and store them in variables
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
+  const likeButton = cardElement.querySelector(".card__like-button");
+  // find delete button
+
+  //add the event listener to the delete button
+  //cardElement.remove(); when b utton is clciked
+
+  //add click listener to the cardImage element
+  //openModal with previewImageModal
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
+
   // set the path to the image to the link field of the object
   // set the image alt text to the name field of the object
   cardImageEl.alt = cardData.name;
