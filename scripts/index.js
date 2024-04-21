@@ -77,6 +77,11 @@ function handleProfileEditSubmit(e) {
   closePopup(profileEditModal);
 }
 
+function handleAddCardSubmit(e) {
+  e.preventDefault();
+  closePopup(addCardModal);
+}
+
 /*Event Listeners*/
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
