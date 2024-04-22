@@ -92,16 +92,37 @@
           <button class="button modal__button" type="submit">Save</button>
         </form>
       </div>
-
-    <template id="card-template">
-      <li class="card">
-        <img src="" class="card__image" alt="" />
-        <div class="card__description">
-          <h2 class="card__title"></h2>
-          <button class="card__like-button" type="button"></button>
+      <!--preview image modal-->
+      <div class="modal" id="preview-image-modal">
+        <div class="modal__container modal__container-image">
+          <button
+          class="modal__close"
+          id="preview-image-close-button"
+          type="button"
+          ></button>
+          <img class="modal__image" src="" alt="" />
+          <p class="modal__image-label"></p>
         </div>
-      </li>
-    </template>
+      </div>
+
+      <template id="card-template">
+        <li class="card">
+          <img src="" class="card__image" alt="" />
+          <div class="card__description">
+            <h2 class="card__title"></h2>
+            <button
+            aria-label="like-button"
+            class="card__like-button"
+            type="button"
+            ></button>
+            <button
+            aria-label="delete-button"
+            class="card__delete-button"
+            type="button"
+            ></button>
+          </div>
+        </li>
+      </template>
 
     <script src="./scripts/index.js"></script>
   </body>
