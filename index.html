@@ -30,9 +30,10 @@
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button" 
-          id="profile-add-button"
-          type="button"
+          <button
+            class="profile__add-button"
+            id="profile-add-button"
+            type="button"
           ></button>
         </section>
         <section class="cards page__section">
@@ -77,7 +78,7 @@
         <form class="modal__form">
           <input
             class="modal__input"
-            name="title"  
+            name="title"
             id="add-card-form"
             placeholder="Title"
             type="text"
@@ -85,44 +86,46 @@
           <input
             class="modal__input"
             name="url"
-            id="add-card-input"
+            id="card-url-input"
             placeholder="Image URL"
             type="text"
           />
           <button class="button modal__button" type="submit">Save</button>
         </form>
       </div>
-      <!--preview image modal-->
-      <div class="modal" id="preview-image-modal">
-        <div class="modal__container modal__container-image">
-          <button
+    </div>
+
+    <!--preview image modal-->
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__container modal__container-image">
+        <button
           class="modal__close"
           id="preview-image-close-button"
           type="button"
-          ></button>
-          <img class="modal__image" src="" alt="" />
-          <p class="modal__image-label"></p>
-        </div>
+        ></button>
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__image-label"></p>
       </div>
+    </div>
 
-      <template id="card-template">
-        <li class="card">
-          <img src="" class="card__image" alt="" />
-          <div class="card__description">
-            <h2 class="card__title"></h2>
-            <button
+    <template id="card-template">
+      <li class="card">
+        <img src="" class="card__image" alt="" />
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button
             aria-label="like-button"
             class="card__like-button"
             type="button"
-            ></button>
-            <button
+          ></button>
+          <button
             aria-label="delete-button"
             class="card__delete-button"
             type="button"
-            ></button>
-          </div>
-        </li>
-      </template>
+          ></button>
+        </div>
+      </li>
+    </template>
 
     <script src="./scripts/index.js"></script>
   </body>
