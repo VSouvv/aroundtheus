@@ -57,15 +57,29 @@
             id="profile-title-input"
             placeholder="Name"
             type="text"
+            maxlength="40"
+            minlength="2"
+            required
           />
+          <span
+            class="modal__form-input-error"
+            id="profile-title-input-error"
+          ></span>
           <input
             class="modal__input"
             name="description"
             id="profile-description-input"
             placeholder="Description"
             type="text"
+            maxlength="200"
+            minlength="2"
+            required
           />
-          <button class="button modal__button" type="submit">Save</button>
+          <span
+            class="modal__form-input-error"
+            id="profile-description-input-error"
+          ></span>
+          <button class="modal__save-button" type="submit">Save</button>
         </form>
       </div>
     </div>
@@ -82,15 +96,29 @@
             id="add-card-form"
             placeholder="Title"
             type="text"
+            maxlength="30"
+            minlength="1"
+            required
           />
+          <span
+            class="modal__form-input-error"
+            id="place-title-input-error"
+          ></span>
           <input
             class="modal__input"
             name="url"
             id="card-url-input"
             placeholder="Image URL"
             type="text"
+            required
           />
-          <button class="button modal__button" type="submit">Save</button>
+          <span
+            class="modal__form-input-error"
+            id="place-url-input-error"
+          ></span>
+          <button class="modal__save-button" type="submit" disabled>
+            Save
+          </button>
         </form>
       </div>
     </div>
