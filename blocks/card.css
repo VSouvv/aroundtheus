@@ -11,77 +11,62 @@
   width: 282px;
   height: 282px;
   object-fit: cover;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   cursor: pointer;
-}
-
-.card__image:hover {
-  cursor: pointer;
-}
-
-.card__title {
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex-grow: 1;
-  font-size: 24px;
-  line-height: 29.05px;
 }
 
 .card__description {
-  display: flex;
   background-color: #fff;
   color: #000;
-  padding: 25px 20px;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 0 0 10px 10px;
-}
-
-.card__text {
   display: flex;
-  background: white;
-  color: black;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 25px;
-  padding-bottom: 25px;
   align-items: center;
   justify-content: space-between;
-  flex-grow: 1;
+  padding: 25px 20px;
 }
 
-.card__like-button {
-  background: transparent url("../images/heart_full-opacity.svg") no-repeat
-    center;
-  width: 23px;
+.card__title {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.card__react-button {
+  background: transparent url(../images/heart_full-opacity.svg) center no-repeat;
   height: 18px;
-  border: none;
-  padding: 0;
-}
-
-.card__like-button_active {
-  background-image: url("../images/Union.svg");
-}
-
-.card__like-button:hover {
-  opacity: 0.5;
+  width: 21px;
+  border: 0;
   cursor: pointer;
+}
+
+.card__react-button:hover {
+  opacity: 0.6;
+}
+
+.card__react-button_active {
+  background-image: url(../images/Union.svg);
 }
 
 .card__delete-button {
-  background: transparent url("../images/Trash.svg") center no-repeat;
+  background: transparent url(../images/Trash.svg) center no-repeat;
+  height: 19.3px;
   width: 18px;
-  height: 19px;
+  border: 0;
+  cursor: pointer;
   position: absolute;
   top: 18px;
   right: 15px;
-  border: 0;
 }
 
 .card__delete-button:hover {
-  color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
+  opacity: 0.6;
+}
+
+.card__image-preview {
+  max-width: 75vw;
+  max-height: 75vh;
 }

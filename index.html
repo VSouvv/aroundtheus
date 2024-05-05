@@ -12,7 +12,7 @@
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
-        <img class="header__image" src="./images/Vector.svg" alt="logo" />
+        <img class="header__logo" src="./images/Vector.svg" alt="logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
@@ -25,15 +25,17 @@
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
               class="profile__edit-button"
-              id="profile-edit-button"
+              id="profile-edit-btn"
               type="button"
+              aria-label="Edit Profile"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
           <button
             class="profile__add-button"
-            id="profile-add-button"
+            id="places-add-btn"
             type="button"
+            aria-label="Add New Location"
           ></button>
         </section>
         <section class="cards page__section">
@@ -41,24 +43,26 @@
         </section>
       </main>
       <footer class="footer page__section">
-        <p class="footer__text">© 2022 Around The U.S.</p>
+        <p class="footer__copyright">&#169; 2022 Around The U.S.</p>
       </footer>
     </div>
-
-    <!--Edit modal-->
+    <!-- Profile Name -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="modal-close-button"></button>
+        <button
+          class="modal__close-button"
+          id="profile-modal-close-btn"
+        ></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form">
+        <form class="modal__form" id="profile-form" novalidate>
           <input
-            class="modal__input"
-            name="title"
-            id="profile-title-input"
-            placeholder="Name"
             type="text"
-            maxlength="40"
+            name="title"
+            class="modal__form-input"
+            placeholder="Name"
+            id="profile-title-input"
             minlength="2"
+            maxlength="40"
             required
           />
           <span
@@ -66,38 +70,40 @@
             id="profile-title-input-error"
           ></span>
           <input
-            class="modal__input"
-            name="description"
-            id="profile-description-input"
-            placeholder="Description"
             type="text"
-            maxlength="200"
+            name="description"
+            class="modal__form-input"
+            placeholder="Description"
+            id="profile-description-input"
             minlength="2"
+            maxlength="200"
             required
           />
           <span
             class="modal__form-input-error"
             id="profile-description-input-error"
           ></span>
-          <button class="modal__save-button" type="submit">Save</button>
+          <button type="submit" class="modal__save-button">Save</button>
         </form>
       </div>
     </div>
-
-    <!--Add card modal-->
-    <div class="modal" id="add-card-modal">
+    <!-- Add Place -->
+    <div class="modal" id="places-add-modal">
       <div class="modal__container">
-        <button class="modal__close" id="modal-close-button"></button>
-        <h2 class="modal__heading">New place</h2>
-        <form class="modal__form">
+        <button
+          class="modal__close-button"
+          id="places-modal-close-btn"
+        ></button>
+        <h2 class="modal__heading">New Place</h2>
+        <form class="modal__form" id="add-place-form" novalidate>
           <input
-            class="modal__input"
-            name="title"
-            id="add-card-form"
-            placeholder="Title"
             type="text"
-            maxlength="30"
+            name="title"
+            class="modal__form-input"
+            placeholder="Title"
+            id="place-title-input"
             minlength="1"
+            maxlength="30"
             required
           />
           <span
@@ -105,56 +111,53 @@
             id="place-title-input-error"
           ></span>
           <input
-            class="modal__input"
+            type="url"
             name="url"
-            id="card-url-input"
+            class="modal__form-input"
             placeholder="Image URL"
-            type="text"
+            id="place-url-input"
             required
           />
           <span
             class="modal__form-input-error"
             id="place-url-input-error"
           ></span>
-          <button class="modal__save-button" type="submit" disabled>
+          <button type="submit" class="modal__save-button" disabled>
             Save
           </button>
         </form>
       </div>
     </div>
-
-    <!--preview image modal-->
-    <div class="modal" id="preview-image-modal">
-      <div class="modal__container modal__container-image">
+    <!-- Place Preview -->
+    <div class="modal" id="places-preview-modal">
+      <div class="modal__container-imagepreview">
         <button
-          class="modal__close"
-          id="preview-image-close-button"
-          type="button"
+          class="modal__close-button"
+          id="preview-modal-close-btn"
         ></button>
-        <img class="modal__image" src="" alt="" />
-        <p class="modal__image-label"></p>
+        <img src="" alt="" class="modal__image-preview" id="places-preview" />
+        <h2 class="modal__image-caption" id="modal-image-caption"></h2>
       </div>
     </div>
-
+    <!--  Card Template -->
     <template id="card-template">
       <li class="card">
-        <img src="" class="card__image" alt="" />
+        <button
+          class="card__delete-button"
+          type="button"
+          aria-label="Delete Place"
+        ></button>
+        <img src="" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button
-            aria-label="like-button"
-            class="card__like-button"
+            class="card__react-button"
             type="button"
-          ></button>
-          <button
-            aria-label="delete-button"
-            class="card__delete-button"
-            type="button"
+            aria-label="Like React to Post"
           ></button>
         </div>
       </li>
     </template>
-
     <script src="./scripts/index.js" defer></script>
     <script src="./scripts/validation.js" defer></script>
   </body>

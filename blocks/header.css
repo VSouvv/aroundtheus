@@ -1,33 +1,22 @@
 .header {
   border-bottom: 1px solid rgb(84 84 84 / 0.7);
-  padding-bottom: 40px;
+}
+.header__logo {
+  width: 173px;
+  height: 33px;
+  margin-bottom: 40px;
 }
 
-.header__image {
-  margin-top: 45px;
-}
-
-@media screen and (max-width: 880px) {
-  .header__image {
-    margin-left: 40px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .header {
-    padding-bottom: 32px;
-  }
-
-  .header__image {
-    margin-top: 28px;
+@media screen and (max-width: 720px) {
+  .header__logo {
     margin-left: 27px;
-    height: 24px;
-    width: 126px;
   }
 }
 
-@media screen and (max-width: 880px) {
-  .header__image {
-    margin-left: 40px;
+@media screen and (max-width: 620px) {
+  .header__logo {
+    margin-bottom: 32px;
+    width: 126px;
+    height: 24px;
   }
 }
