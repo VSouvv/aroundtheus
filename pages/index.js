@@ -1,3 +1,6 @@
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -51,6 +54,7 @@ const placeAddForm = document.forms["add-place-form"];
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+
 /* ------------------------------ Image Preview ----------------------------- */
 const placesPreviewModal = document.querySelector("#places-preview-modal");
 const placesPreviewImage = document.querySelector("#places-preview");
@@ -62,6 +66,11 @@ function openModal(modal) {
   modal.classList.add("modal_open");
   document.addEventListener("keydown", closeModalEsc);
   modal.addEventListener("mousedown", closeModalOverlay);
+}
+
+function fillProfileForm() {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
 }
 
 function closeModal(modal) {
@@ -82,86 +91,82 @@ function closeModalOverlay(e) {
     closeModal(e.currentTarget);
   }
 }
-
-function fillProfileForm() {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-}
-
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const likeReactBtn = cardElement.querySelector(".card__react-button");
-  const deleteActionBtn = cardElement.querySelector(".card__delete-button");
-
-  likeReactBtn.addEventListener("click", () => {
-    likeReactBtn.classList.toggle("card__react-button_active");
-  });
-
-  deleteActionBtn.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardImageEl.addEventListener("click", () => {
-    placesPreviewImage.src = cardData.link;
-    placesPreviewImage.alt = "Photo of " + cardData.name;
-    placesPreviewCaption.textContent = cardData.name;
-    openModal(placesPreviewModal);
-  });
-
-  cardTitleEl.textContent = cardData.name;
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  return cardElement;
-}
-
-function renderCard(cardData, wrapper) {
-  wrapper.prepend(getCardElement(cardData));
-}
-
+/* --------------------------------- Reset Form ------------------------------ */
 function resetForm(form) {
   form.reset();
 }
 
-/* --------------------------------- Event Handlers -------------------------------- */
-
-/* --------------------------------- Profile -------------------------------- */
+/* -------------------- Edit Profile Handler & Listener --------------------- */
 function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
 }
-/* --------------------------------- Places --------------------------------- */
+
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+
+/* ------------------------- Submit Button Listener ------------------------ */
+placesAddBtn.addEventListener("click", () => {
+  openModal(placesAddModal);
+});
+
+placeAddForm.addEventListener("submit", handleNewPlaceSubmit);
+
+/* ------------------------- Image preview function ----------------------- */
+function handleImageClick(cardData) {
+  placesPreviewImage.src = cardData.link;
+  placesPreviewImage.alt = "Photo of " + cardData.name;
+  placesPreviewCaption.textContent = cardData.name;
+  openModal(placesPreviewModal);
+}
+
+/* --------------------------- Initialize Cards -------------------------- */
+initialCards.forEach((cardData) => {
+  cardListEl.prepend(getCardElement(cardData));
+});
+
+function getCardElement(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  const cardElement = card.getView();
+  return cardElement;
+}
+
+/* --------------------------- Form validation -------------------------- */
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__form-input",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__save-button-disabled",
+  inputErrorClass: "modal__form_input_type_error",
+  errorClass: "modal__form-input-error-visible",
+};
+
+const profileEditValidation = new FormValidator(settings, profileEditForm);
+const addPlaceValidation = new FormValidator(settings, placeAddForm);
+
+/* ------------------------- Profile edit handler ------------------------ */
+profileEditBtn.addEventListener("click", () => {
+  profileEditValidation.resetValidation();
+  fillProfileForm();
+  openModal(profileEditModal);
+});
+
+function renderCard(cardData, wrapper) {
+  wrapper.prepend(getCardElement(cardData));
+}
+
+/* ----------------------- Submit new place handler ---------------------- */
 function handleNewPlaceSubmit(e) {
   e.preventDefault();
   const name = placeTitleInput.value;
   const link = placeUrlInput.value;
   renderCard({ name, link }, cardListEl);
   resetForm(placeAddForm);
+  addPlaceValidation.resetValidation();
+  addPlaceValidation.disableButton();
   closeModal(placesAddModal);
 }
 
-/* --------------------------------- Event Listeners -------------------------------- */
-
-/* --------------------------------- Profile -------------------------------- */
-closeButtons.forEach((btn) => {
-  const modal = btn.closest(".modal");
-  btn.addEventListener("click", () => closeModal(modal));
-});
-
-profileEditBtn.addEventListener("click", () => {
-  fillProfileForm();
-  openModal(profileEditModal);
-});
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-
-/* --------------------------------- Places --------------------------------- */
-placesAddBtn.addEventListener("click", () => {
-  openModal(placesAddModal);
-});
-placeAddForm.addEventListener("submit", handleNewPlaceSubmit);
-
-/* ---------------------------------- Cards --------------------------------- */
-initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+profileEditValidation.enableValidation();
+addPlaceValidation.enableValidation();
