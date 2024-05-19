@@ -29,7 +29,6 @@ const initialCards = [
 ];
 
 /* --------------------------------- Elements -------------------------------- */
-
 const closeButtons = document.querySelectorAll(".modal__close-button");
 
 /* --------------------------------- Profile -------------------------------- */
@@ -78,6 +77,11 @@ function closeModal(modal) {
   document.removeEventListener("keydown", closeModalEsc);
   modal.removeEventListener("mousedown", closeModalOverlay);
 }
+
+closeButtons.forEach((btn) => {
+  const modal = btn.closest(".modal");
+  btn.addEventListener("click", () => closeModal(modal));
+});
 
 function closeModalEsc(e) {
   if (e.key === "Escape") {
@@ -163,7 +167,6 @@ function handleNewPlaceSubmit(e) {
   const link = placeUrlInput.value;
   renderCard({ name, link }, cardListEl);
   resetForm(placeAddForm);
-  addPlaceValidation.resetValidation();
   addPlaceValidation.disableButton();
   closeModal(placesAddModal);
 }
