@@ -70,7 +70,10 @@ const section = new Section(
 
 const imagePreviewModal = new PopupWithImage("#places-preview-modal");
 
-const userInfo = new UserInfo();
+const userInfo = new UserInfo({
+  titleSelector: ".profile__title",
+  descriptionSelector: ".profile__description",
+});
 
 const editProfileModal = new PopupWithForm(
   "#profile-edit-modal",
