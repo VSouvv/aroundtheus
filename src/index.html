@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="Social" />
     <meta name="author" content="Vista Souvandy" />
-    <!--<link href="./pages/index.css" rel="stylesheet" /> -->
     <title>Around the U.S</title>
   </head>
   <body class="page">
@@ -17,17 +16,27 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img src="<%=require("./images/jacques-cousteau.jpg")%>" alt="Jacques
-          Cousteau Avatar Image" class="profile__image" />
+          <button
+            class="avatar__edit-overlay"
+            id="avatar-save-btn"
+            type="button"
+            aria-label="Update Avatar Picture"
+          >
+            <img src="<%=require("./images/avatar__edit-btn.svg")%>" alt="Edit
+            Avatar" class="avatar__edit-button"/>
+          </button>
+          <img src="<%=require("./images/avatar_default.png")%>" alt=""
+          class="profile__image" id="avatar__image"/>
+
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title"></h1>
             <button
               class="profile__edit-button"
               id="profile-edit-btn"
               type="button"
               aria-label="Edit Profile"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button
             class="profile__add-button"
@@ -44,7 +53,7 @@
         <p class="footer__copyright">&#169; 2022 Around The U.S.</p>
       </footer>
     </div>
-    <!--Profile Name-->
+    <!-- Profile Name Modal -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
@@ -85,7 +94,25 @@
         </form>
       </div>
     </div>
-    <!--Add Place-->
+    <!-- Confrm Delete Place Modal -->
+    <div class="modal" id="places-delete-modal">
+      <div class="modal__container modal__container-confirm">
+        <button
+          class="modal__close-button"
+          id="delete-place-close-btn"
+        ></button>
+        <h2 class="modal__heading modal__heading-confirm">Are you sure?</h2>
+        <form class="modal__form">
+          <button
+            type="submit"
+            class="modal__save-button modal__save-button-confirm"
+          >
+            Yes
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Add Place Modal -->
     <div class="modal" id="places-add-modal">
       <div class="modal__container">
         <button
@@ -126,7 +153,7 @@
         </form>
       </div>
     </div>
-    <!--Place Preview-->
+    <!-- Place Preview Modal -->
     <div class="modal" id="places-preview-modal">
       <div class="modal__container-imagepreview">
         <button
@@ -137,7 +164,37 @@
         <h2 class="modal__image-caption" id="modal-image-caption"></h2>
       </div>
     </div>
-    <!--Card Template-->
+    <!-- Profile Picture Update Modal -->
+    <div class="modal" id="avatar-update-modal">
+      <div class="modal__container modal__container-avatar">
+        <button
+          class="modal__close-button"
+          id="avatar-modal-close-btn"
+        ></button>
+        <h2 class="modal__heading modal__heading-avatar">
+          Change profile picture
+        </h2>
+        <form class="modal__form" id="update-avatar-form" novalidate>
+          <input
+            type="url"
+            name="url"
+            class="modal__form-input"
+            placeholder="Profile Picture URL"
+            id="avatar-url-input"
+            required
+          />
+          <span
+            class="modal__form-input-error"
+            id="avatar-url-input-error"
+          ></span>
+          <button type="submit" class="modal__save-button" disabled>
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- JS Card Template -->
     <template id="card-template">
       <li class="card">
         <button

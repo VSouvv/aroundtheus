@@ -1,31 +1,4 @@
-export const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago Di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
-
-/* ---------- Form Validation Settings & Var ---------------- */
+/* -------------- Form Validation Settings & Var ---------------- */
 export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__form-input",
@@ -33,4 +6,15 @@ export const settings = {
   inactiveButtonClass: "modal__save-button-disabled",
   inputErrorClass: "modal__form_input_type_error",
   errorClass: "modal__form-input-error-visible",
+};
+
+export const elements = {
+  profileEditBtn: document.querySelector("#profile-edit-btn"),
+  profileTitleInput: document.querySelector("#profile-title-input"),
+  profileEditForm: document.forms["profile-form"],
+  profileDescriptionInput: document.querySelector("#profile-description-input"),
+  placesAddBtn: document.querySelector("#places-add-btn"),
+  placeAddForm: document.forms["add-place-form"],
+  avatarUpdateBtn: document.querySelector("#avatar-save-btn"),
+  avatarForm: document.forms["update-avatar-form"],
 };
