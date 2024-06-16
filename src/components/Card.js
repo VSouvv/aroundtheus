@@ -12,6 +12,7 @@ export default class Card {
       id: data._id,
       isLiked: data.isLiked,
     };
+
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
@@ -20,8 +21,7 @@ export default class Card {
 
   _setEventListeners() {
     this._likeIcon.addEventListener("click", () => {
-      this._handleLikeClick(this._likeIcon, this._data.isLiked, this._data.id);
-      this._data.isLiked = !this._data.isLiked;
+      this.toggleLike();
     });
     this._deleteBtn.addEventListener("click", () => {
       this._handleDeleteClick(this._data.id, this._cardElement);
@@ -29,6 +29,19 @@ export default class Card {
     this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick(this._data);
     });
+  }
+
+  toggleLike() {
+    const likeStatus = this._data.isLiked;
+
+    this._handleLikeClick(this._data.id, likeStatus)
+      .then(() => {
+        this._data.isLiked = !this._data.isLiked;
+        this._likeIcon.classList.toggle("card__react-button_active");
+      })
+      .catch((error) => {
+        console.error("Error toggling like status:", error);
+      });
   }
 
   getView() {
