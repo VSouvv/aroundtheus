@@ -7,6 +7,7 @@ export default class UserInfo {
 
   updateAvatar(image) {
     this._profileAvatar.src = image;
+    this._profileAvatar.alt = this._profileName.textContent;
   }
 
   getUserInfo() {
@@ -21,10 +22,10 @@ export default class UserInfo {
     this._profileName.textContent = name;
     this._profileJob.textContent = about;
     if (avatar) {
-      this._profileAvatar.src = avatar;
-      this._profileAvatar.alt = name;
+      this.updateAvatar(avatar);
     } else {
       this._profileAvatar.src = "./images/avatar_default.png";
+      this._profileAvatar.alt = name;
     }
   }
 }
