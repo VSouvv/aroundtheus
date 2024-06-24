@@ -52,6 +52,34 @@
   transition: opacity 0.2s linear;
 }
 
+.profile__avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+}
+
+.profile__pen-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url("images/edit_icon.png") no-repeat center center;
+  background-size: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.profile__avatar-container:hover .profile__pen-icon {
+  display: block;
+}
+
 .profile__edit-button {
   background: transparent url(../images/edit-button_full-opacity.svg) center
     no-repeat;
